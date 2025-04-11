@@ -46,7 +46,6 @@ const BookCover = ({
         />
       </div>
     </div>
-    //<h1 className="text-white py-20">hi there</h1>
   );
 };
 export default BookCover;
