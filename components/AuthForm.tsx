@@ -45,7 +45,7 @@ export default function AuthForm<T extends FieldValues>({
     defaultValues: defaultValues as DefaultValues<T>,
   });
 
-  const handleSubmit: SubmitHandler<T> = async (data) => {};
+  const handleSubmit: SubmitHandler<T> = async (data) => {console.log(data)};
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-xl py-4  font-semibold text-white">
@@ -81,22 +81,25 @@ export default function AuthForm<T extends FieldValues>({
                           FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]
                         }
                         {...field}
-                          className="bg-gray-950 border-0 rounded-xs h-12 outline-0 
+                        className="bg-gray-950 border-0 rounded-xs h-12 outline-0 
                         focus:border-none
                         focus:outline-hidden  focus:ring-0"
                       />
                     )}
                   </FormControl>
-                  <FormDescription>
-                    This is your public display name.
-                  </FormDescription>
+
                   <FormMessage />
                 </FormItem>
               )}
             />
           ))}
 
-          <Button type="submit">Submit</Button>
+          <Button
+            type="submit"
+            className="w-full lg:w-fit lg:px-8 cursor-pointer bg-primary flex flex-1 justify-center align-middle p-3 text-secondar text-gray-900 font-semibold text-lg h-13"
+          >
+            {isSignIn ? "Sign in" : "Sign up"}
+          </Button>
         </form>
       </Form>
       <p className="text-center text-base font- font-medium">
